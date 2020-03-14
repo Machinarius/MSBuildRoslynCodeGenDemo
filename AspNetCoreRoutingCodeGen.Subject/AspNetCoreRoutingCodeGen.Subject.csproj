@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -10,4 +10,32 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
   </ItemGroup>
 
+  <!--
+  <PropertyGroup>
+    <CodeGenTaskAssembly Condition=" '$(MSBuildRuntimeType)' == 'Core' ">..\MSBuildCodeGenTest.CodeGen\bin\Debug\netcoreapp3.0\MSBuildCodeGenTest.CodeGen.dll</CodeGenTaskAssembly>
+    <CodeGenTaskAssembly Condition=" '$(MSBuildRuntimeType)' != 'Core' ">..\MSBuildCodeGenTest.CodeGen\bin\Debug\net472\MSBuildCodeGenTest.CodeGen.dll</CodeGenTaskAssembly>
+
+    <BuildDependsOn>
+      CodeGenTask;
+      $(BuildDependsOn)
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <UsingTask TaskName="CodeGenTask" AssemblyFile="$(CodeGenTaskAssembly)">
+  </UsingTask>
+
+  <Target Name="RunCodeGen" BeforeTargets="CoreCompile">
+    <CodeGenTask TargetFolder="$(IntermediateOutputPath)">
+      <Output TaskParameter="GeneratedFilePath" ItemName="GeneratedCodePath" />
+    </CodeGenTask>
+
+    <Message Text="Trying to include '$(GeneratedCodePath)' in the compilation..." />
+
+    <ItemGroup>
+      <Compile Include="@(GeneratedCodePath)" />
+      <FileWrites Include="@(GeneratedCodePath)" />
+    </ItemGroup>
+  </Target>
+  -->
+  
 </Project>
